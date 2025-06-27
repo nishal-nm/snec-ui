@@ -14,7 +14,7 @@ const ProgramCard = memo(({ title, subtitle, description, imagePath }) => {
           <img
             src={imagePath}
             alt={title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_20%]"
             loading="lazy"
             onError={(e) => {
               e.target.style.display = 'none';

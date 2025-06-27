@@ -133,7 +133,7 @@ const Footer = () => {
                         {section.links.map((link) => (
                           <li key={link}>
                             <a
-                              href="#"
+                              href="/#"
                               className="text-base sm:text-lg font-light text-white/90 hover:text-white hover:translate-x-1 transition-all duration-200 ease-in-out block py-1"
                             >
                               {link}

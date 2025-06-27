@@ -101,7 +101,7 @@ const Header = () => {
             <nav className="flex justify-between items-center py-2 font-thin text-sm xl:text-[14px]">
               {/* Desktop Navigation */}
               <div className="hidden xl:flex items-center flex-wrap">
-                <a href="#" className={navItemStyle}>Home</a>
+                <a href="/#" className={navItemStyle}>Home</a>
 
                 <div className="relative" onMouseEnter={handleAboutEnter} onMouseLeave={handleAboutLeave}>
                   <button className={navItemStyle}>About</button>
@@ -115,7 +115,7 @@ const Header = () => {
                         <ul>
                           {ABOUT_ITEMS.map((item, index) => (
                             <li key={item}>
-                              <a href="#" className="block px-3 py-2 rounded text-white hover:bg-white/10 transition-colors text-sm">
+                              <a href="/#" className="block px-3 py-2 rounded text-white hover:bg-white/10 transition-colors text-sm">
                                 {item}
                               </a>
                               {index !== ABOUT_ITEMS.length - 1 && <hr className="border-white/5" />}
@@ -128,7 +128,7 @@ const Header = () => {
                 </div>
 
                 {NAV_ITEMS.map(item => (
-                  <a key={item} href="#" className={navItemStyle}>{item}</a>
+                  <a key={item} href="/#" className={navItemStyle}>{item}</a>
                 ))}
               </div>
 
@@ -163,7 +163,7 @@ const Header = () => {
             {/* Mobile Menu Content */}
             <div className="max-h-[calc(100vh-120px)] overflow-y-auto p-4">
               <div className="flex flex-col space-y-1">
-                <a href="#" className={mobileNavItemStyle} onClick={toggleMenu}>Home</a>
+                <a href="/#" className={mobileNavItemStyle} onClick={toggleMenu}>Home</a>
 
                 {/* Mobile About Dropdown */}
                 <div className="text-white">
@@ -180,7 +180,7 @@ const Header = () => {
                       {ABOUT_ITEMS.map(item => (
                         <a
                           key={item}
-                          href="#"
+                          href="/#"
                           className="block text-white/90 py-2 px-3 hover:bg-blue-600/40 hover:text-white transition-colors rounded text-sm"
                           onClick={toggleMenu}
                         >
@@ -192,7 +192,7 @@ const Header = () => {
                 </div>
 
                 {NAV_ITEMS.map(item => (
-                  <a key={item} href="#" className={mobileNavItemStyle} onClick={toggleMenu}>
+                  <a key={item} href="/#" className={mobileNavItemStyle} onClick={toggleMenu}>
                     {item}
                   </a>
                 ))}
