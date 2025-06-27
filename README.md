@@ -9,11 +9,11 @@ This project contains the responsive React.js implementation of the SNEC UI as p
 
 ## Technologies Used
 - React.js
-- Tailwind CSS / CSS Modules (mention what you used)
+- Tailwind CSS / CSS Modules
 - Figma (as design reference)
 
-## Live Preview (if deployed)
-[Link Here]
+## Live Preview
+https://nishal-nm.github.io/snec-ui/
 
 ## Getting Started
 ```bash
