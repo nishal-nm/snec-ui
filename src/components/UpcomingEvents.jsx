@@ -28,19 +28,6 @@ const UpcomingEvents = () => {
     []
   );
 
-  const totalSlides = useMemo(
-    () => Math.ceil(events.length / 2),
-    [events.length]
-  );
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  }, [totalSlides]);
-
   const handleDotClick = useCallback((index) => {
     setCurrentSlide(index);
   }, []);
