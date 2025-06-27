@@ -13,7 +13,7 @@ const UpcomingEvents = () => {
           'A grand gathering of scholars, students, and professionals discussing modern challenges in Islamic education and society.',
         date: 'April 15, 2025',
         venue: 'Main Auditorium',
-        image: '/images/events/annual.jpg',
+        image: 'images/events/annual.jpg',
       },
       {
         id: 2,
@@ -22,7 +22,7 @@ const UpcomingEvents = () => {
           'A transformative spiritual journey with Islamic lectures, Q&A sessions, and community Iftar gatherings.',
         date: 'April 15, 2025',
         venue: 'Main Auditorium',
-        image: '/images/events/ramadan.jpg',
+        image: 'images/events/ramadan.jpg',
       },
     ],
     []

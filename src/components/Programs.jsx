@@ -8,56 +8,56 @@ const Programs = () => {
       subtitle: 'SANAAE',
       description:
         'The program is intended to create a community that is enriched with Islamic scholars who are well versed in the different principles and',
-      imagePath: '/images/programs/shareea.jpg',
+      imagePath: 'images/programs/shareea.jpg',
     },
     {
       title: 'SHE (For Girls) –',
       subtitle: "SANAA'IYYA",
       description:
         'The program focuses on developing women Islamic scholars with tharbiya and thazkiya system of education along with secular education.',
-      imagePath: '/images/programs/she.jpg',
+      imagePath: 'images/programs/she.jpg',
     },
     {
       title: 'SHAREEA Plus',
       subtitle: '(For Boys)',
       description:
         'The ten-year religious study program is structured as a three-year secondary, two-year preliminary, three-year degree, and two-year postgraduate (PG)',
-      imagePath: '/images/programs/shareea-plus.jpg',
+      imagePath: 'images/programs/shareea-plus.jpg',
     },
     {
       title: 'SHE Plus',
       subtitle: '(For Girls)',
       description:
         'The eight-year religious study program for girls is structured as a three-year secondary, two-year preliminary, and three-year degree course, offering',
-      imagePath: '/images/programs/she-plus.jpg',
+      imagePath: 'images/programs/she-plus.jpg',
     },
     {
       title: 'LIFE',
       subtitle: '(For Boys)',
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program duration is seven',
-      imagePath: '/images/programs/life-boys.jpg',
+      imagePath: 'images/programs/life-boys.jpg',
     },
     {
       title: 'LIFE',
       subtitle: '(For Girls)',
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program duration is seven',
-      imagePath: '/images/programs/life-girls.jpg',
+      imagePath: 'images/programs/life-girls.jpg',
     },
     {
       title: 'LIFE Plus',
       subtitle: '(For Boys)',
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program spans a total of ten',
-      imagePath: '/images/programs/life-plus-boys.jpg',
+      imagePath: 'images/programs/life-plus-boys.jpg',
     },
     {
       title: 'LIFE Plus',
       subtitle: '(For Girls)',
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program spans a total of ten',
-      imagePath: '/images/programs/life-plus-girls.jpg',
+      imagePath: 'images/programs/life-plus-girls.jpg',
     },
   ];
 
@@ -66,7 +66,7 @@ const Programs = () => {
   return (
     <section
       className="my-6 sm:my-8 md:my-10 py-8 sm:py-10 md:py-12 bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: "url('/images/program-bg.jpg')" }}
+      style={{ backgroundImage: "url('images/program-bg.jpg')" }}
     >
       <div className="py-1">
         {/* Header */}

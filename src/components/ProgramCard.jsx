@@ -26,7 +26,7 @@ const ProgramCard = memo(({ title, subtitle, description, imagePath }) => {
         <div
           className="p-3 flex flex-col flex-grow relative"
           style={{
-            backgroundImage: "url('/images/watermark.png')",
+            backgroundImage: "url('images/watermark.png')",
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'bottom right',
             backgroundSize: '3.5rem',

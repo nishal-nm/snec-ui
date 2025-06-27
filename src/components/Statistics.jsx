@@ -34,7 +34,7 @@ const Statistics = () => {
       ref={sectionRef}
       className="flex items-center my-12 sm:my-16 md:my-20 lg:my-24 min-h-56 sm:min-h-64 md:min-h-56 py-8 sm:py-12 lg:py-0"
       style={{
-        backgroundImage: `linear-gradient(rgba(38, 109, 181, 0.8), rgba(38, 109, 181, 0.8)), url('/images/crowd_bg.jpg')`,
+        backgroundImage: `linear-gradient(rgba(38, 109, 181, 0.8), rgba(38, 109, 181, 0.8)), url('images/crowd_bg.jpg')`,
         backgroundSize: '150%',
         backgroundPosition: '30%',
         backgroundPositionY: '50%',
@@ -50,7 +50,7 @@ const Statistics = () => {
             >
               {/* Pattern overlay - keeping original visibility */}
               <div
-                className="absolute inset-0 bg-[url('/images/patterns.png')] bg-repeat bg-center"
+                className="absolute inset-0 bg-[url('images/patterns.png')] bg-repeat bg-center"
                 aria-hidden="true"
               />
 

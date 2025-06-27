@@ -70,8 +70,8 @@ const Header = () => {
         <div className="flex flex-col xl:flex-row xl:justify-between xl:items-start gap-4 xl:gap-0">
           {/* Logo Section */}
           <div className="flex items-center justify-center xl:justify-start gap-2 xl:gap-4">
-            <img src="/images/logo.png" className="h-10 sm:h-12 xl:h-13 object-contain" alt="Logo" />
-            <img src="/images/arabic_name.png" className="h-10 sm:h-12 xl:h-13 object-contain" alt="Arabic Name" />
+            <img src="images/logo.png" className="h-10 sm:h-12 xl:h-13 object-contain" alt="Logo" />
+            <img src="images/arabic_name.png" className="h-10 sm:h-12 xl:h-13 object-contain" alt="Arabic Name" />
           </div>
 
           {/* Navigation Section */}
@@ -152,8 +152,8 @@ const Header = () => {
             {/* Mobile Header */}
             <div className="flex justify-between items-center p-4 border-b border-white/10">
               <div className="flex items-center gap-2">
-                <img src="/images/logo.png" className="h-8 object-contain" alt="Logo" />
-                <img src="/images/arabic_name.png" className="h-8 object-contain" alt="Arabic Name" />
+                <img src="images/logo.png" className="h-8 object-contain" alt="Logo" />
+                <img src="images/arabic_name.png" className="h-8 object-contain" alt="Arabic Name" />
               </div>
               <button onClick={toggleMenu} className="p-2 text-white hover:text-blue-600/80 transition-colors">
                 <X className="w-6 h-6" />

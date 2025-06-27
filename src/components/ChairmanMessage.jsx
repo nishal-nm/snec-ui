@@ -5,7 +5,7 @@ const ChairmanMessage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="relative w-full">
             <img
-              src="/images/chairman_message.png"
+              src="images/chairman_message.png"
               alt="Chairman's Message"
               className="w-full h-auto object-contain"
               loading="lazy"

@@ -13,7 +13,7 @@ const ConnectSection = () => {
           className="rounded-xl sm:rounded-2xl lg:rounded-[2rem] shadow-lg p-6 sm:p-8 md:p-10 lg:p-12 py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden relative"
           style={{
             backgroundColor: '#3298FF38',
-            backgroundImage: "url('/images/connect_bg.png')",
+            backgroundImage: "url('images/connect_bg.png')",
             backgroundSize: 'contain',
             backgroundPosition: 'bottom center',
             backgroundRepeat: 'no-repeat',

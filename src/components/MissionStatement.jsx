@@ -3,7 +3,7 @@ const MissionStatement = () => {
     <section
       className="relative h-[400px] lg:h-[550px] flex items-center text-white"
       style={{
-        backgroundImage: "url('/images/kids_image.jpg')",
+        backgroundImage: "url('images/kids_image.jpg')",
         backgroundSize: 'cover',
         backgroundPositionY: '44%',
       }}
@@ -16,7 +16,7 @@ const MissionStatement = () => {
           {' '}
           {/* made wider */}
           <div className="w-12 h-12 rounded-full mb-6">
-            <img src="/images/Vector.png" alt="Vector" />
+            <img src="images/Vector.png" alt="Vector" />
           </div>
           <h3 className="text-3xl lg:text-5xl font-semibold leading-snug">
             We are shaping <br />

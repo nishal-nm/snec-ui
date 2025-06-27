@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <section
       className="relative text-white min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
-      style={{ backgroundImage: "url('/images/background.png')" }}
+      style={{ backgroundImage: "url('images/background.png')" }}
     >
       {/* Blackish tint overlay */}
       <div className="absolute inset-0 bg-black/70"></div>
@@ -28,7 +28,7 @@ const HeroSection = () => {
         {/* Logo - responsive sizing while maintaining proportions */}
         <div className="mb-8 sm:mb-9 md:mb-10">
           <img
-            src="/images/logo.png"
+            src="images/logo.png"
             alt="SNEC Logo"
             className="mx-auto w-10 sm:w-11 md:w-13 lg:w-16 object-contain"
           />

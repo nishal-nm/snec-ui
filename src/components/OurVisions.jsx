@@ -3,37 +3,37 @@ import VisionCard from './VisionCard';
 const OurVisions = () => {
   const visions = [
     {
-      icon: '/images/vision-icons/reading.png',
+      icon: 'images/vision-icons/reading.png',
       title: 'Smart Learning, Better Outcomes',
       description:
         'Our Blended Learning System combines classroom teaching with digital tools to create a more flexible and effective learning experience',
     },
     {
-      icon: '/images/vision-icons/atom.png',
+      icon: 'images/vision-icons/atom.png',
       title: 'Science & Sustainability in Action',
       description:
         'We focus on advancing science, promoting health, fostering environmental awareness, driving innovation, and championing sustainability for a better future.',
     },
     {
-      icon: '/images/vision-icons/magnifier.png',
+      icon: 'images/vision-icons/magnifier.png',
       title: 'Exchange. Internship. Research.',
       description:
         'Our Faculty Exchange, Internship Program, and Research Collaboration offer global learning and innovative research opportunities.',
     },
     {
-      icon: '/images/vision-icons/school.png',
+      icon: 'images/vision-icons/school.png',
       title: 'Educity: The University Within SNEC',
       description:
         "Educity seamlessly integrates SNEC's diverse educational offerings, creating a comprehensive and dynamic university-level learning environment that fosters academic excellence and personal growth.",
     },
     {
-      icon: '/images/vision-icons/steps.png',
+      icon: 'images/vision-icons/steps.png',
       title: 'Learn with Mentors, Grow Through Experience',
       description:
         'Our Mentor-Mentee System pairs students with experienced faculty for personalized guidance, while our field trips provide real-world learning experiences, bridging theory with practical application.',
     },
     {
-      icon: '/images/vision-icons/people.png',
+      icon: 'images/vision-icons/people.png',
       title: 'Leadership Through Life Skills',
       description:
         'Our life skills project fosters leadership, enhances personality, and nurtures creativity, empowering students to thrive in both personal and professional life.',
