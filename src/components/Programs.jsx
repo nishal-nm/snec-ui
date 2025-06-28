@@ -1,7 +1,77 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ProgramCard from './ProgramCard';
 
 const Programs = () => {
+  const scrollContainer = useRef(null);
+  const sectionRef = useRef(null);
+  const animationRef = useRef(null);
+  const [scrollingActive, setScrollingActive] = useState(false);
+
+  useEffect(() => {
+    const container = scrollContainer.current;
+    const section = sectionRef.current;
+    if (!container || !section) return;
+
+    const threshold = 120;
+    const maxSpeed = 20;
+    let currentSpeed = 0;
+
+    const updateScroll = () => {
+      if (currentSpeed !== 0) {
+        container.scrollLeft += currentSpeed;
+        animationRef.current = requestAnimationFrame(updateScroll);
+      }
+    };
+
+    const handleMouseMove = (e) => {
+      if (!scrollingActive) return;
+
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX;
+
+      const distanceFromLeft = mouseX - rect.left;
+      const distanceFromRight = rect.right - mouseX;
+
+      if (distanceFromLeft < threshold) {
+        const ratio = (threshold - distanceFromLeft) / threshold;
+        currentSpeed = -Math.ceil(ratio * maxSpeed);
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = requestAnimationFrame(updateScroll);
+      } else if (distanceFromRight < threshold) {
+        const ratio = (threshold - distanceFromRight) / threshold;
+        currentSpeed = Math.ceil(ratio * maxSpeed);
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = requestAnimationFrame(updateScroll);
+      } else {
+        currentSpeed = 0;
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+
+    const stopScroll = () => {
+      currentSpeed = 0;
+      cancelAnimationFrame(animationRef.current);
+    };
+
+    // scroll only when inside the section
+    section.addEventListener('mouseenter', () => setScrollingActive(true));
+    section.addEventListener('mouseleave', () => {
+      setScrollingActive(false);
+      stopScroll();
+    });
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      section.removeEventListener('mouseenter', () => setScrollingActive(true));
+      section.removeEventListener('mouseleave', () => {
+        setScrollingActive(false);
+        stopScroll();
+      });
+      window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationRef.current);
+    };
+  }, [scrollingActive]);
+
   const programs = [
     {
       title: 'SHAREEA (For Boys) –',
@@ -69,15 +139,13 @@ const Programs = () => {
     },
   ];
 
-  const scrollContainer = useRef(null);
-
   return (
     <section
+      ref={sectionRef}
       className="my-6 sm:my-8 md:my-10 py-8 sm:py-10 md:py-12 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: "url('images/program-bg.jpg')" }}
     >
       <div className="py-1">
-        {/* Header */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12 px-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 mb-2 sm:mb-3 md:mb-4">
             Find the Right{' '}
@@ -88,9 +156,7 @@ const Programs = () => {
           </p>
         </div>
 
-        {/* Scrollable Cards Container */}
         <div className="relative">
-          {/* Scrollable Container */}
           <div
             ref={scrollContainer}
             className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 px-2 sm:px-4"
@@ -121,7 +187,6 @@ const Programs = () => {
           overflow: hidden;
         }
 
-        /* Hide scrollbar for all browsers */
         .overflow-x-auto::-webkit-scrollbar {
           display: none;
         }
