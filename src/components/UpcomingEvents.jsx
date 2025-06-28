@@ -1,40 +1,95 @@
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const UpcomingEvents = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const events = useMemo(
-    () => [
-      {
-        id: 1,
-        title: 'Annual Islamic Conference 2025',
-        description:
-          'A grand gathering of scholars, students, and professionals discussing modern challenges in Islamic education and society.',
-        date: 'April 15, 2025',
-        venue: 'Main Auditorium',
-        image: 'images/events/annual.jpg',
-      },
-      {
-        id: 2,
-        title: 'Ramadan Spiritual Retreat',
-        description:
-          'A transformative spiritual journey with Islamic lectures, Q&A sessions, and community Iftar gatherings.',
-        date: 'April 15, 2025',
-        venue: 'Main Auditorium',
-        image: 'images/events/ramadan.jpg',
-      },
-    ],
-    []
-  );
+  const events = [
+    {
+      id: 1,
+      title: 'Annual Islamic Conference 2025',
+      description:
+        'A grand gathering of scholars, students, and professionals discussing modern challenges in Islamic education and society.',
+      date: 'April 15, 2025',
+      venue: 'Main Auditorium',
+      image: 'images/events/annual.jpg',
+    },
+    {
+      id: 2,
+      title: 'Ramadan Spiritual Retreat',
+      description:
+        'A transformative spiritual journey with Islamic lectures, Q&A sessions, and community Iftar gatherings.',
+      date: 'March 20, 2025',
+      venue: 'Community Center',
+      image: 'images/events/ramadan.jpg',
+    },
+    {
+      id: 3,
+      title: 'Sanaa-iyya Convocation Conference',
+      description:
+        'A landmark convocation celebrating Sanaiya graduates and uniting students from S.E.C. institutions.',
+      date: 'December 25, 2025',
+      venue: 'Crescent SHE Campus',
+      image:
+        'https://www.snec.in/uploads/news_and_events/012025/a0a545be2b1622bd5541c9a82293e037.jpeg',
+    },
+  ];
+
+  // Auto-rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % events.length);
+    }, 5500);
+    return () => clearInterval(interval);
+  }, [events.length]);
 
   const handleDotClick = useCallback((index) => {
-    setCurrentSlide(index);
+    setCurrentIndex(index);
   }, []);
 
   const handleViewMore = () => {
     console.log('View More handling....');
   };
+
+  const EventCard = ({ event }) => (
+    <div className="flex-shrink-0 w-full relative border-t-8 sm:border-t-10 md:border-t-12 border-[#266DB5] overflow-hidden shadow-lg hover:shadow-xl hover:scale-102 h-64 sm:h-80 md:h-96 transition-transform duration-300">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-110"
+        style={{ backgroundImage: `url(${event.image})` }}
+        role="img"
+        aria-label={`Background image for ${event.title}`}
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+      {/* Content */}
+      <div className="relative z-10 p-3 sm:p-4 md:p-5 lg:p-6 h-full flex flex-col justify-end text-white">
+        {/* Location and Date */}
+        <div className="flex flex-col xs:flex-row xs:items-center gap-2 xs:gap-3 mb-2 sm:mb-3 text-xs sm:text-sm">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span className="font-extralight truncate">{event.venue}</span>
+          </div>
+          <div className="flex items-center gap-1 sm:gap-2">
+            <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span className="font-extralight">{event.date}</span>
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 sm:mb-3 leading-tight line-clamp-2">
+          {event.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-200 text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-4">
+          {event.description}
+        </p>
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-8 sm:py-12 md:py-16">
@@ -63,65 +118,58 @@ const UpcomingEvents = () => {
           </div>
         </div>
 
-        {/* Events Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
-          {events.map((event) => (
+        {/* Carousel Container */}
+        <div className="mb-6 sm:mb-8">
+          {/* Mobile - Single Card */}
+          <div className="block lg:hidden overflow-hidden">
             <div
-              key={event.id}
-              className="relative transition-transform hover:scale-105 border-t-8 sm:border-t-10 md:border-t-12 border-[#266DB5] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-64 sm:h-80 md:h-96 lg:h-100"
+              className="flex transition-transform duration-800 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {/* Background Image with Overlay */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${event.image})` }}
-                role="img"
-                aria-label={`Background image for ${event.title}`}
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-
-              {/* Content */}
-              <div className="relative z-10 p-3 sm:p-4 md:p-5 lg:p-6 h-full flex flex-col justify-end text-white">
-                {/* Location and Date */}
-                <div className="flex flex-col xs:flex-row xs:items-center gap-2 xs:gap-3 mb-2 sm:mb-3 text-xs sm:text-sm">
-                  <div className="flex items-center gap-1 sm:gap-2">
-                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                    <span className="font-extralight truncate">
-                      {event.venue}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 sm:gap-2">
-                    <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                    <span className="font-extralight">{event.date}</span>
-                  </div>
+              {events.map((event, index) => (
+                <div key={event.id} className="w-full flex-shrink-0 px-2">
+                  <EventCard event={event} />
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 sm:mb-3 leading-tight line-clamp-2">
-                  {event.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-200 text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-4">
-                  {event.description}
-                </p>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Desktop - Two Cards */}
+          <div className="hidden lg:block overflow-hidden">
+            <div
+              className="flex transition-transform duration-800 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 50}%)` }}
+            >
+              {events.map((event, index) => (
+                <div key={event.id} className="w-1/2 flex-shrink-0 px-3">
+                  <EventCard event={event} />
+                </div>
+              ))}
+
+              {events.slice(0, 2).map((event, index) => (
+                <div
+                  key={`duplicate-${event.id}`}
+                  className="w-1/2 flex-shrink-0 px-3"
+                >
+                  <EventCard event={event} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Carousel Dots */}
-        <div className="flex justify-center space-x-2 mt-4">
-          {[0, 1].map((index) => (
+        {/* Navigation Dots */}
+        <div className="flex justify-center space-x-2">
+          {events.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={`w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full transition-all duration-300 ${
-                currentSlide === index
-                  ? 'bg-blue-600 ring-2 ring-blue-300'
-                  : 'bg-gray-300 hover:bg-gray-400'
+                currentIndex === index
+                  ? 'bg-[#266DB5] ring-2 ring-blue-300 scale-110'
+                  : 'bg-gray-300 hover:bg-gray-400 hover:scale-105'
               }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`Go to event ${index + 1}`}
             />
           ))}
         </div>
