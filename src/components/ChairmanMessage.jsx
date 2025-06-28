@@ -1,6 +1,6 @@
 const ChairmanMessage = () => {
   return (
-    <section id="chariman-message" className="py-8 sm:py-12 md:py-16 lg:py-20">
+    <section id="chairman-message" className="py-8 sm:py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="relative w-full">
