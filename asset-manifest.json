@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/snec-ui/static/js/main.4a49fade.js",
+    "main.js": "/snec-ui/static/js/main.a3ce50c5.js",
     "index.html": "/snec-ui/index.html",
-    "main.4a49fade.js.map": "/snec-ui/static/js/main.4a49fade.js.map"
+    "main.a3ce50c5.js.map": "/snec-ui/static/js/main.a3ce50c5.js.map"
   },
   "entrypoints": [
-    "static/js/main.4a49fade.js"
+    "static/js/main.a3ce50c5.js"
   ]
 }
