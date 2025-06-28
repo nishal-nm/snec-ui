@@ -101,17 +101,18 @@ const UpcomingEvents = () => {
           </h2>
           <div className="sm:ml-auto">
             <button
-              className="flex h-10 sm:h-11 md:h-12 items-center"
+              className="flex h-10 sm:h-11 md:h-12 items-center group"
               aria-label="View more events"
               onClick={handleViewMore}
             >
-              <div className="relative flex items-center h-full bg-white hover:bg-[#266DB5] text-[#266DB5] hover:text-white font-medium transition-colors px-3 sm:px-4 md:px-5 overflow-hidden group">
+              <div className="relative flex items-center h-full bg-white hover:bg-[#266DB5] text-[#266DB5] hover:text-white font-medium transition-colors duration-300 ease-out px-3 sm:px-4 md:px-5 overflow-hidden">
                 <span className="relative z-10 text-sm sm:text-base">
                   View More
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full h-full transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out -skew-x-12"></div>
+                {/* Reflective light effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent w-full h-full transform -translate-x-full group-hover:translate-x-full group-hover:duration-700 transition-transform duration-500 ease-in-out -skew-x-12"></div>
               </div>
-              <div className="flex items-center h-full bg-[#266DB5] text-white justify-center px-2 sm:px-3">
+              <div className="flex items-center h-full bg-[#266DB5] text-white justify-center px-2 sm:px-3 transition-colors duration-300 ease-out">
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </button>
