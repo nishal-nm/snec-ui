@@ -1,11 +1,14 @@
-import { ArrowRight, Clock, MapPin } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import EventCard from './EventCard';
 
 const UpcomingEvents = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
   const scrollLock = useRef(false);
   const lastDirection = useRef(null);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   const events = [
     {
@@ -38,7 +41,6 @@ const UpcomingEvents = () => {
     },
   ];
 
-  // --- Logic Section ---
   const resetAutoScroll = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
@@ -92,6 +94,28 @@ const UpcomingEvents = () => {
     [goToNext, goToPrevious]
   );
 
+  const handleTouchStart = useCallback((e) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchMove = useCallback((e) => {
+    touchEndX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(distance) > 40) {
+      if (distance > 0) goToNext();
+      else goToPrevious();
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  }, [goToNext, goToPrevious]);
+
   const handleDotClick = (index) => {
     updateIndex(index);
   };
@@ -100,40 +124,10 @@ const UpcomingEvents = () => {
     console.log('View More handling....');
   };
 
-  const EventCard = ({ event }) => (
-    <div className="flex-shrink-0 w-full relative border-t-8 sm:border-t-10 md:border-t-12 border-[#266DB5] overflow-hidden shadow-lg hover:shadow-xl hover:scale-102 h-64 sm:h-80 md:h-96 transition-transform duration-300">
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-110"
-        style={{ backgroundImage: `url(${event.image})` }}
-        role="img"
-        aria-label={`Background image for ${event.title}`}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
-      <div className="relative z-10 p-3 sm:p-4 md:p-5 lg:p-6 h-full flex flex-col justify-end text-white">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-2 sm:mb-3 text-xs sm:text-sm">
-          <div className="flex items-center gap-1">
-            <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span className="font-extralight truncate">{event.venue}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span className="font-extralight">{event.date}</span>
-          </div>
-        </div>
-        <h3 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 sm:mb-3 leading-tight line-clamp-2">
-          {event.title}
-        </h3>
-        <p className="text-gray-200 text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-4">
-          {event.description}
-        </p>
-      </div>
-    </div>
-  );
-
   return (
     <section className="py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl">
-        {/* Header (original retained) */}
+        {/* Header */}
         <div className="relative mb-8 sm:mb-10 md:mb-12 min-h-[3.5rem] sm:min-h-[4rem] md:min-h-[4.5rem] flex flex-col sm:flex-row items-center gap-4 sm:gap-0">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 text-center sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
             Upcoming <span className="text-[#266DB5] font-bold">Events</span>
@@ -161,6 +155,9 @@ const UpcomingEvents = () => {
         <div
           className="mb-6 sm:mb-8 block lg:hidden overflow-hidden select-none"
           onWheel={handleWheel}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div
             className="flex transition-transform duration-700 ease-in-out"
@@ -178,6 +175,9 @@ const UpcomingEvents = () => {
         <div
           className="hidden lg:block overflow-hidden select-none"
           onWheel={handleWheel}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div
             className="flex transition-transform duration-700 ease-in-out"
