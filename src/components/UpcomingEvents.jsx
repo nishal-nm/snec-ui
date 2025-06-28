@@ -32,6 +32,10 @@ const UpcomingEvents = () => {
     setCurrentSlide(index);
   }, []);
 
+  const handleViewMore = () => {
+    console.log('View More handling....');
+  };
+
   return (
     <section className="py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl">
@@ -44,6 +48,7 @@ const UpcomingEvents = () => {
             <button
               className="flex h-10 sm:h-11 md:h-12 items-center"
               aria-label="View more events"
+              onClick={handleViewMore}
             >
               <div className="relative flex items-center h-full bg-white hover:bg-[#266DB5] text-[#266DB5] hover:text-white font-medium transition-colors px-3 sm:px-4 md:px-5 overflow-hidden group">
                 <span className="relative z-10 text-sm sm:text-base">
@@ -59,7 +64,7 @@ const UpcomingEvents = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
+        <div className="grid grid-cols-1 hover:scale-110 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
           {events.map((event) => (
             <div
               key={event.id}
