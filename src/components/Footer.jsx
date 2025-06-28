@@ -12,28 +12,42 @@ const Footer = () => {
       {
         id: 1,
         links: [
-          'Samastha',
-          'Online Madrassa Portal',
-          'Suprabhaatham Daily',
-          'Sathydhara Fortnightly',
-          'AlBirr School',
-          'Asmi Education',
+          { name: 'Samastha', href: 'https://samastha.info/' },
+          {
+            name: 'Online Madrassa Portal',
+            href: 'https://online.samastha.info/',
+          },
+          {
+            name: 'Suprabhaatham Daily',
+            href: 'https://www.suprabhaatham.com/',
+          },
+          { name: 'Sathydhara Fortnightly', href: 'https://sathyadhara.com/' },
+          { name: 'AlBirr School', href: 'https://albirrschools.org/' },
+          { name: 'Asmi Education', href: 'https://www.asmiedu.org/' },
         ],
       },
       {
         id: 2,
         links: [
-          'SNEC',
-          'Vision and Mission',
-          'Strategic Plan',
-          'News and Events',
-          'Gallery',
-          'Contact Us',
+          { name: 'SNEC', href: 'https://www.snec.in/snec' },
+          { name: 'Vision and Mission', href: '#our-vision' },
+          { name: 'Strategic Plan', href: 'https://www.snec.in/syllabus' },
+          { name: 'News and Events', href: 'https://www.snec.in/news_event' },
+          { name: 'Gallery', href: 'https://www.snec.in/gallery' },
+          { name: 'Contact Us', href: 'https://www.snec.in/contact_us' },
         ],
       },
       {
         id: 3,
-        links: ['Downloads', 'Notification', 'Results', 'Affiliated Colleges'],
+        links: [
+          { name: 'Downloads', href: 'https://www.snec.in/downloads' },
+          { name: 'Notification', href: 'https://www.snec.in/notifications' },
+          { name: 'Results', href: 'https://www.snec.in/results' },
+          {
+            name: 'Affiliated Colleges',
+            href: 'https://www.snec.in/affiliated_colleges',
+          },
+        ],
       },
     ],
     []
@@ -41,10 +55,22 @@ const Footer = () => {
 
   const socialIcons = useMemo(
     () => [
-      { Icon: InstagramLogo, href: '#', label: 'Instagram' },
-      { Icon: FacebookLogo, href: '#', label: 'Facebook' },
-      { Icon: WhatsappLogo, href: '#', label: 'WhatsApp' },
-      { Icon: YoutubeLogo, href: '#', label: 'YouTube' },
+      {
+        Icon: InstagramLogo,
+        href: 'https://www.facebook.com/snecsamastha/',
+        label: 'Instagram',
+      },
+      {
+        Icon: FacebookLogo,
+        href: 'https://www.instagram.com/snec_updates/',
+        label: 'Facebook',
+      },
+      {
+        Icon: WhatsappLogo,
+        href: 'https://whatsapp.com/channel/0029Va56oEi9xVJY82zDX93E',
+        label: 'WhatsApp',
+      },
+      { Icon: YoutubeLogo, href: 'https://www.youtube.com/@SamasthaNec', label: 'YouTube' },
     ],
     []
   );
@@ -130,13 +156,13 @@ const Footer = () => {
                     </h4>
                     <nav>
                       <ul className="space-y-3 sm:space-y-4">
-                        {section.links.map((link) => (
-                          <li key={link}>
+                        {section.links.map(({ name, href }) => (
+                          <li key={name}>
                             <a
-                              href="/#"
+                              href={href}
                               className="text-base sm:text-lg font-light text-white/90 hover:text-white hover:translate-x-1 transition-all duration-200 ease-in-out block py-1"
                             >
-                              {link}
+                              {name}
                             </a>
                           </li>
                         ))}

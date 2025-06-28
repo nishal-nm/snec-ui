@@ -7,7 +7,7 @@ const LoginButtons = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-18">
+    <section id="login-buttons" className="bg-gray-50 py-18">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {loginTypes.map((text) => (

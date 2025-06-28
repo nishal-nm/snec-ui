@@ -7,42 +7,48 @@ import {
   WhatsappLogo,
   YoutubeLogo,
 } from 'phosphor-react';
-import { useState, useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const hideTimeout = useRef(null);
 
+  // Home button
+  const HOME_ITEM = { name: 'Home', href: process.env.PUBLIC_URL || './' };
+
   // about section items
   const ABOUT_ITEMS = [
-    'Governing Body',
-    'Academic Council',
-    'Board of Studies',
-    'Vision & Mission',
-    "Chairperson's Message",
-    'Strategic Plan',
-    'Organogram',
-    'SNEC Logo',
+    { name: 'Governing Body', href: 'https://www.snec.in/governing_body' },
+    { name: 'Academic Council', href: 'https://www.snec.in/academic_council' },
+    { name: 'Board of Studies', href: 'https://www.snec.in/boards_of_studies' },
+    { name: 'Vision & Mission', href: '#our-vision' },
+    { name: "Chairperson's Message", href: '#chairman-message' },
+    { name: 'Strategic Plan', href: 'https://www.snec.in/syllabus' },
+    {
+      name: 'Organogram',
+      href: 'https://www.snec.in/assets/front/ORGANOGRAM.pdf',
+    },
+    { name: 'SNEC Logo', href: 'https://www.snec.in/snec_logo' },
   ];
 
   // navbar items
   const NAV_ITEMS = [
-    'Academics',
-    'Colleges',
-    'Forms',
-    'Downloads',
-    'FAQs',
-    'Gallery',
-    'Contact Us',
-    'Examination',
-    'Admission',
-    'Login',
+    { name: 'Academics', href: './' },
+    { name: 'Colleges', href: './' },
+    { name: 'Forms', href: 'https://www.snec.in/forms' },
+    { name: 'Downloads', href: 'https://www.snec.in/downloads' },
+    { name: 'FAQs', href: 'https://www.snec.in/faq' },
+    { name: 'Gallery', href: 'https://www.snec.in/gallery' },
+    { name: 'Contact Us', href: 'https://www.snec.in/contact_us' },
+    { name: 'Examination', href: './' },
+    { name: 'Admission', href: 'https://www.snec.in/admission' },
+    { name: 'Login', href: '#login-buttons' },
   ];
 
   // Handlers
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  
+
   const handleAboutEnter = () => {
     clearTimeout(hideTimeout.current);
     setIsAboutDropdownOpen(true);
@@ -55,14 +61,18 @@ const Header = () => {
   };
 
   const toggleMobileAbout = () => {
-    setIsAboutDropdownOpen(prev => !prev);
+    setIsAboutDropdownOpen((prev) => !prev);
   };
 
   // style for responsiveness
-  const navItemStyle = "text-white transition-colors px-2 py-1 hover:bg-blue-600/60 hover:shadow-[0_4px_0_0_rgba(38,109,181,1)] whitespace-nowrap";
-  const mobileNavItemStyle = "text-white transition-colors py-3 px-4 hover:bg-blue-600/30 rounded-lg font-medium";
-  const dropdownStyle = "absolute left-1/2 transform -translate-x-1/2 mt-2 z-50";
-  const dropdownContentStyle = "bg-blue-600/90 rounded-2xl shadow-xl p-4 w-[22rem]";
+  const navItemStyle =
+    'text-white transition-colors px-2 py-1 hover:bg-[#043773B2] hover:shadow-[0_4px_0_0_rgba(38,109,181,1)] whitespace-nowrap';
+  const mobileNavItemStyle =
+    'text-white transition-colors py-3 px-4 hover:bg-[#043773B2] rounded-lg font-medium';
+  const dropdownStyle =
+    'absolute left-1/2 transform -translate-x-1/2 mt-2 z-50';
+  const dropdownContentStyle =
+    'bg-[#266DB5E5] rounded-2xl shadow-xl p-4 w-[22rem]';
 
   return (
     <header className="bg-transparent relative z-30">
@@ -71,8 +81,16 @@ const Header = () => {
         <div className="flex flex-col xl:flex-row xl:justify-between xl:items-start gap-4 xl:gap-0">
           {/* Logo Section */}
           <div className="flex items-center justify-center xl:justify-start gap-2 xl:gap-4">
-            <img src="images/logo.png" className="h-10 sm:h-12 xl:h-13 object-contain" alt="Logo" />
-            <img src="images/arabic_name.png" className="h-10 sm:h-12 xl:h-13 object-contain" alt="Arabic Name" />
+            <img
+              src="images/logo.png"
+              className="h-10 sm:h-12 xl:h-13 object-contain"
+              alt="Logo"
+            />
+            <img
+              src="images/arabic_name.png"
+              className="h-10 sm:h-12 xl:h-13 object-contain"
+              alt="Arabic Name"
+            />
           </div>
 
           {/* Navigation Section */}
@@ -91,10 +109,18 @@ const Header = () => {
               </div>
 
               <div className="flex items-center space-x-3">
-                <InstagramLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-pink-200 cursor-pointer transition-colors" />
-                <FacebookLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-blue-200 cursor-pointer transition-colors" />
-                <WhatsappLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-green-200 cursor-pointer transition-colors" />
-                <YoutubeLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-red-200 cursor-pointer transition-colors" />
+                <a href="https://www.instagram.com/snec_updates/">
+                  <InstagramLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-pink-200 cursor-pointer transition-colors" />
+                </a>
+                <a href="https://www.facebook.com/snecsamastha/">
+                  <FacebookLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-blue-200 cursor-pointer transition-colors" />
+                </a>
+                <a href="https://whatsapp.com/channel/0029Va56oEi9xVJY82zDX93E">
+                  <WhatsappLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-green-200 cursor-pointer transition-colors" />
+                </a>
+                <a href="https://www.youtube.com/@SamasthaNec">
+                  <YoutubeLogo className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-red-200 cursor-pointer transition-colors" />
+                </a>
               </div>
             </div>
 
@@ -102,24 +128,35 @@ const Header = () => {
             <nav className="flex justify-between items-center py-2 font-thin text-sm xl:text-[14px]">
               {/* Desktop Navigation */}
               <div className="hidden xl:flex items-center flex-wrap">
-                <a href="/#" className={navItemStyle}>Home</a>
+                <a href={HOME_ITEM.href} className={navItemStyle}>
+                  {HOME_ITEM.name}
+                </a>
 
-                <div className="relative" onMouseEnter={handleAboutEnter} onMouseLeave={handleAboutLeave}>
+                <div
+                  className="relative"
+                  onMouseEnter={handleAboutEnter}
+                  onMouseLeave={handleAboutLeave}
+                >
                   <button className={navItemStyle}>About</button>
-                  
+
                   {isAboutDropdownOpen && (
                     <div className={dropdownStyle}>
-                      <div className="w-3 h-3 rotate-45 mx-auto bg-blue-600/90"></div>
+                      <div className="w-3 h-3 rotate-45 mx-auto bg-[#266DB5E5]"></div>
                       <div className={`mt-[-6px] ${dropdownContentStyle}`}>
                         <h3 className="text-lg font-bold text-white">SNEC</h3>
                         <hr className="border-white/70 border-t-2 my-2" />
                         <ul>
-                          {ABOUT_ITEMS.map((item, index) => (
-                            <li key={item}>
-                              <a href="/#" className="block px-3 py-2 rounded text-white hover:bg-white/10 transition-colors text-sm">
-                                {item}
+                          {ABOUT_ITEMS.map(({ name, href }, index) => (
+                            <li key={name}>
+                              <a
+                                href={href}
+                                className="block px-3 py-2 rounded text-white hover:bg-white/10 transition-colors text-sm"
+                              >
+                                {name}
                               </a>
-                              {index !== ABOUT_ITEMS.length - 1 && <hr className="border-white/5" />}
+                              {index !== ABOUT_ITEMS.length - 1 && (
+                                <hr className="border-white/5" />
+                              )}
                             </li>
                           ))}
                         </ul>
@@ -128,8 +165,10 @@ const Header = () => {
                   )}
                 </div>
 
-                {NAV_ITEMS.map(item => (
-                  <a key={item} href="/#" className={navItemStyle}>{item}</a>
+                {NAV_ITEMS.map(({ name, href }) => (
+                  <a key={name} href={href} className={navItemStyle}>
+                    {name}
+                  </a>
                 ))}
               </div>
 
@@ -139,7 +178,11 @@ const Header = () => {
                 className="xl:hidden p-2 text-white hover:text-blue-600/80 transition-colors ml-auto"
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
             </nav>
           </div>
@@ -149,14 +192,31 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="xl:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-sm">
-          <div className="absolute top-0 left-0 right-0 backdrop-blur-md shadow-2xl border-b border-white/10 bg-gradient-to-b from-blue-600/90 via-blue-600/80 to-blue-600/0">
+          <div
+            className="absolute top-0 left-0 right-0 backdrop-blur-md shadow-2xl border-b border-white/10"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(38, 109, 181, 0.9) 0%, rgba(38, 109, 181, 0.783173) 43.75%, rgba(38, 109, 181, 0) 100%)',
+            }}
+          >
             {/* Mobile Header */}
             <div className="flex justify-between items-center p-4 border-b border-white/10">
               <div className="flex items-center gap-2">
-                <img src="images/logo.png" className="h-8 object-contain" alt="Logo" />
-                <img src="images/arabic_name.png" className="h-8 object-contain" alt="Arabic Name" />
+                <img
+                  src="images/logo.png"
+                  className="h-8 object-contain"
+                  alt="Logo"
+                />
+                <img
+                  src="images/arabic_name.png"
+                  className="h-8 object-contain"
+                  alt="Arabic Name"
+                />
               </div>
-              <button onClick={toggleMenu} className="p-2 text-white hover:text-blue-600/80 transition-colors">
+              <button
+                onClick={toggleMenu}
+                className="p-2 text-white hover:text-blue-600/80 transition-colors"
+              >
                 <X className="w-6 h-6" />
               </button>
             </div>
@@ -164,7 +224,13 @@ const Header = () => {
             {/* Mobile Menu Content */}
             <div className="max-h-[calc(100vh-120px)] overflow-y-auto p-4">
               <div className="flex flex-col space-y-1">
-                <a href="/#" className={mobileNavItemStyle} onClick={toggleMenu}>Home</a>
+                <a
+                  href={HOME_ITEM.href}
+                  className={mobileNavItemStyle}
+                  onClick={toggleMenu}
+                >
+                  {HOME_ITEM.name}
+                </a>
 
                 {/* Mobile About Dropdown */}
                 <div className="text-white">
@@ -173,28 +239,39 @@ const Header = () => {
                     className={`w-full text-left ${mobileNavItemStyle} flex justify-between items-center`}
                   >
                     About
-                    <span className={`transition-transform ${isAboutDropdownOpen ? 'rotate-180' : ''}`}>▼</span>
+                    <span
+                      className={`transition-transform ${
+                        isAboutDropdownOpen ? 'rotate-180' : ''
+                      }`}
+                    >
+                      ▼
+                    </span>
                   </button>
 
                   {isAboutDropdownOpen && (
-                    <div className="ml-4 mt-1 space-y-1 rounded-lg p-2 bg-blue-600/20">
-                      {ABOUT_ITEMS.map(item => (
+                    <div className="ml-4 mt-1 space-y-1 rounded-lg p-2 bg-[#266DB5E5]">
+                      {ABOUT_ITEMS.map(({ name, href }) => (
                         <a
-                          key={item}
-                          href="/#"
+                          key={name}
+                          href={href}
                           className="block text-white/90 py-2 px-3 hover:bg-blue-600/40 hover:text-white transition-colors rounded text-sm"
                           onClick={toggleMenu}
                         >
-                          {item}
+                          {name}
                         </a>
                       ))}
                     </div>
                   )}
                 </div>
 
-                {NAV_ITEMS.map(item => (
-                  <a key={item} href="/#" className={mobileNavItemStyle} onClick={toggleMenu}>
-                    {item}
+                {NAV_ITEMS.map(({ name, href }) => (
+                  <a
+                    key={name}
+                    href={href}
+                    className={mobileNavItemStyle}
+                    onClick={toggleMenu}
+                  >
+                    {name}
                   </a>
                 ))}
               </div>
