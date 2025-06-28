@@ -1,9 +1,9 @@
 const LoginButtons = () => {
   const loginTypes = [
-    { name: 'Student Login', href: '/#' },
-    { name: 'Student Union Login', href: '/#' },
-    { name: 'Alumni Login', href: '/#' },
-    { name: 'Institution Login', href: '/#' },
+    { name: 'Student Login', href: 'https://online.snec.in/login' },
+    { name: 'Student Union Login', href: 'https://online.snec.in/login' },
+    { name: 'Alumni Login', href: 'https://online.snec.in/login' },
+    { name: 'Institution Login', href: 'https://online.snec.in/login' },
   ];
 
   return (

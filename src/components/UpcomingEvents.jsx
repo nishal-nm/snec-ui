@@ -64,11 +64,11 @@ const UpcomingEvents = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 hover:scale-110 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
           {events.map((event) => (
             <div
               key={event.id}
-              className="relative border-t-8 sm:border-t-10 md:border-t-12 border-[#266DB5] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-64 sm:h-80 md:h-96 lg:h-100"
+              className="relative hover:scale-110 border-t-8 sm:border-t-10 md:border-t-12 border-[#266DB5] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-64 sm:h-80 md:h-96 lg:h-100"
             >
               {/* Background Image with Overlay */}
               <div
