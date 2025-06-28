@@ -48,7 +48,7 @@ const Statistics = () => {
               key={index}
               className="bg-white bg-opacity-90 rounded-2xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden"
             >
-              {/* Pattern overlay - keeping original visibility */}
+              {/* Pattern overlay */}
               <div
                 className="absolute inset-0 bg-[url('images/patterns.png')] bg-repeat bg-center"
                 aria-hidden="true"

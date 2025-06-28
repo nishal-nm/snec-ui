@@ -149,7 +149,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Copyright Section */}
+        {/* Bottom Section - Copyright */}
         <div className="border-t border-white/20 py-6 sm:py-8">
           <div className="text-center">
             <p className="text-sm sm:text-base font-light text-white/80 leading-relaxed">

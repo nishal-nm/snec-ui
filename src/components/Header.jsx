@@ -14,7 +14,7 @@ const Header = () => {
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const hideTimeout = useRef(null);
 
-  // Constants
+  // about section items
   const ABOUT_ITEMS = [
     'Governing Body',
     'Academic Council',
@@ -26,6 +26,7 @@ const Header = () => {
     'SNEC Logo',
   ];
 
+  // navbar items
   const NAV_ITEMS = [
     'Academics',
     'Colleges',
@@ -57,7 +58,7 @@ const Header = () => {
     setIsAboutDropdownOpen(prev => !prev);
   };
 
-  // Styles
+  // style for responsiveness
   const navItemStyle = "text-white transition-colors px-2 py-1 hover:bg-blue-600/60 hover:shadow-[0_4px_0_0_rgba(38,109,181,1)] whitespace-nowrap";
   const mobileNavItemStyle = "text-white transition-colors py-3 px-4 hover:bg-blue-600/30 rounded-lg font-medium";
   const dropdownStyle = "absolute left-1/2 transform -translate-x-1/2 mt-2 z-50";

@@ -14,7 +14,7 @@ const ProgramCard = memo(({ title, subtitle, description, imagePath }) => {
           <img
             src={imagePath}
             alt={title}
-            className="w-full h-full object-cover object-[center_20%]"
+            className="w-full h-full object-cover object-center"
             loading="lazy"
             onError={(e) => {
               e.target.style.display = 'none';
@@ -39,7 +39,6 @@ const ProgramCard = memo(({ title, subtitle, description, imagePath }) => {
             {description}
           </p>
 
-          {/* Button aligned to bottom */}
           <div className="mt-auto pt-4">
             <button className="inline-flex items-center text-blue-600 font-medium text-lg hover:text-blue-700 transition-colors group">
               Know More

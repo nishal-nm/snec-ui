@@ -1,6 +1,5 @@
 import { memo } from 'react';
 
-// VisionCard.jsx - Optimized without changing internal structure
 const VisionCard = memo(({ icon, title, description }) => {
   const gradientStyle = {
     background:

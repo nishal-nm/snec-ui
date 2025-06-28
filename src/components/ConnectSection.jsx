@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 
 const ConnectSection = () => {
   const handleConnect = useCallback(() => {
-    // Add your connection logic here
     console.log('Connecting with SNEC...');
   }, []);
 
@@ -48,7 +47,7 @@ const ConnectSection = () => {
             </div>
           </div>
 
-          {/* Decorative overlay for better text readability */}
+          {/* Decorative overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-50 pointer-events-none" />
         </div>
       </div>
