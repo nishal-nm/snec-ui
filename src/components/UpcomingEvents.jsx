@@ -68,7 +68,7 @@ const UpcomingEvents = () => {
           {events.map((event) => (
             <div
               key={event.id}
-              className="relative hover:scale-110 border-t-8 sm:border-t-10 md:border-t-12 border-[#266DB5] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-64 sm:h-80 md:h-96 lg:h-100"
+              className="relative transition-transform hover:scale-105 border-t-8 sm:border-t-10 md:border-t-12 border-[#266DB5] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-64 sm:h-80 md:h-96 lg:h-100"
             >
               {/* Background Image with Overlay */}
               <div

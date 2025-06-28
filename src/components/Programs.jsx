@@ -9,7 +9,7 @@ const Programs = () => {
       description:
         'The program is intended to create a community that is enriched with Islamic scholars who are well versed in the different principles and',
       imagePath: 'images/programs/shareea.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/shariah_stream',
     },
     {
       title: 'SHE (For Girls) –',
@@ -17,7 +17,7 @@ const Programs = () => {
       description:
         'The program focuses on developing women Islamic scholars with tharbiya and thazkiya system of education along with secular education.',
       imagePath: 'images/programs/she.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/shee_stream',
     },
     {
       title: 'SHAREEA Plus',
@@ -25,7 +25,7 @@ const Programs = () => {
       description:
         'The ten-year religious study program is structured as a three-year secondary, two-year preliminary, three-year degree, and two-year postgraduate (PG)',
       imagePath: 'images/programs/shareea-plus.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/shareea_plus_stream',
     },
     {
       title: 'SHE Plus',
@@ -33,7 +33,7 @@ const Programs = () => {
       description:
         'The eight-year religious study program for girls is structured as a three-year secondary, two-year preliminary, and three-year degree course, offering',
       imagePath: 'images/programs/she-plus.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/she_plus_stream',
     },
     {
       title: 'LIFE',
@@ -41,7 +41,7 @@ const Programs = () => {
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program duration is seven',
       imagePath: 'images/programs/life-boys.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/life_stream',
     },
     {
       title: 'LIFE',
@@ -49,7 +49,7 @@ const Programs = () => {
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program duration is seven',
       imagePath: 'images/programs/life-girls.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/life_stream',
     },
     {
       title: 'LIFE Plus',
@@ -57,7 +57,7 @@ const Programs = () => {
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program spans a total of ten',
       imagePath: 'images/programs/life-plus-boys.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/life_plus_stream',
     },
     {
       title: 'LIFE Plus',
@@ -65,7 +65,7 @@ const Programs = () => {
       description:
         'The goal of this stream is to produce highly skilled professionals with strong religious awareness. The program spans a total of ten',
       imagePath: 'images/programs/life-plus-girls.jpg',
-      href: '/#',
+      href: 'https://www.snec.in/life_plus_stream',
     },
   ];
 
