@@ -39,52 +39,58 @@ const UpcomingEvents = () => {
   ];
 
   // --- Logic Section ---
-  const updateIndex = (newIndex) => {
-    setCurrentIndex(newIndex);
-    resetAutoScroll();
-  };
-
-  const goToNext = () => {
-    updateIndex((prev) => (prev + 1) % events.length);
-  };
-
-  const goToPrevious = () => {
-    updateIndex((prev) => (prev - 1 + events.length) % events.length);
-  };
-
-  const resetAutoScroll = () => {
+  const resetAutoScroll = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % events.length);
     }, 5500);
-  };
+  }, [events.length]);
+
+  const updateIndex = useCallback(
+    (newIndex) => {
+      setCurrentIndex(newIndex);
+      resetAutoScroll();
+    },
+    [resetAutoScroll]
+  );
+
+  const goToNext = useCallback(() => {
+    updateIndex((prev) => (prev + 1) % events.length);
+  }, [updateIndex, events.length]);
+
+  const goToPrevious = useCallback(() => {
+    updateIndex((prev) => (prev - 1 + events.length) % events.length);
+  }, [updateIndex, events.length]);
 
   useEffect(() => {
     resetAutoScroll();
     return () => clearInterval(intervalRef.current);
-  }, []);
+  }, [resetAutoScroll]);
 
-  const handleWheel = useCallback((e) => {
-    if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
-    e.preventDefault();
+  const handleWheel = useCallback(
+    (e) => {
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+      e.preventDefault();
 
-    if (scrollLock.current) return;
+      if (scrollLock.current) return;
 
-    const direction = e.deltaX > 0 ? 'right' : 'left';
+      const direction = e.deltaX > 0 ? 'right' : 'left';
 
-    if (direction !== lastDirection.current) {
-      lastDirection.current = direction;
+      if (direction !== lastDirection.current) {
+        lastDirection.current = direction;
 
-      if (direction === 'right') goToNext();
-      else goToPrevious();
+        if (direction === 'right') goToNext();
+        else goToPrevious();
 
-      scrollLock.current = true;
-      setTimeout(() => {
-        scrollLock.current = false;
-        lastDirection.current = null;
-      }, 800);
-    }
-  }, []);
+        scrollLock.current = true;
+        setTimeout(() => {
+          scrollLock.current = false;
+          lastDirection.current = null;
+        }, 800);
+      }
+    },
+    [goToNext, goToPrevious]
+  );
 
   const handleDotClick = (index) => {
     updateIndex(index);
