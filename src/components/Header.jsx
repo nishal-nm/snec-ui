@@ -143,7 +143,12 @@ const Header = () => {
                     <div className={dropdownStyle}>
                       <div className="w-3 h-3 rotate-45 mx-auto bg-[#266DB5E5]"></div>
                       <div className={`mt-[-6px] ${dropdownContentStyle}`}>
-                        <h3 className="text-lg font-bold text-white">SNEC</h3>
+                        <a
+                          href="https://www.snec.in/snec"
+                          className="px-3 py-2 rounded text-white hover:bg-white/10 transition-colors text-sm font-semibold"
+                        >
+                          SNEC
+                        </a>
                         <hr className="border-white/70 border-t-2 my-2" />
                         <ul>
                           {ABOUT_ITEMS.map(({ name, href }, index) => (
